@@ -1,4 +1,4 @@
-@'
+$yaml = @"
 name: ML CI Pipeline
 
 on:
@@ -30,4 +30,6 @@ jobs:
 
       - name: Run automated tests
         run: python -m pytest -v
-'@ | Set-Content -Path .github/workflows/ci.yml -Encoding UTF8
+"@
+
+[System.IO.File]::WriteAllText("$PWD\.github\workflows\ci.yml", $yaml)
